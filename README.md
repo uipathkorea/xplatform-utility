@@ -11,3 +11,4 @@ python --file test.xfdl  --out test.xfdl
 
 ### TobeSoft_Table.xaml 
 Xplatform에서 DataScraping이 동작하지 않는 경우 Xplatform이 table을 표현하는 방식을 이해해서 DataTable로 데이터를 추출할수 있는 샘플 workflow 입니다. role='table'인 항목에 대한 Selector는 해당 xplatform 환경에 맞게 변경해주시면 됩니다. 
+![Alt text](img/tobesoft_table_extraction.png)
