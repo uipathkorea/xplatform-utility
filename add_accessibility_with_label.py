@@ -25,6 +25,6 @@ for tag in TAGS:
                 i.attrib['style'] = "accessibility:enable all '" + i.attrib['id'] + "' '';"
 
 if args.out is not None:
-    tree.write( args.out, encoding='UTF-8')
+    tree.write( args.out, xml_declaration=True, encoding='UTF-8')
 else:
-    tree.write( 'updated_' + os.path.basename(args.file), encoding='UTF-8')
+    tree.write( 'updated_' + os.path.basename(args.file), xml_declaration=True, encoding='UTF-8')
