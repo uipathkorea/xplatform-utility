@@ -3,7 +3,7 @@ xplatform 관련 유틸리티
 
 ### enable_acc_label.py 
 Xplatform에서 Accessibility를 enable 하고, 각 컴포넌트에 label을 설정하게 되면 UiStudio 에서 Element를 쉽게 식별할 수 있습니다. 
-컴포넌트 지정시 사용한 id를 lable로 매팅시켜주는 python 코드를 실행하시면 자동으로 id 값을 Element의 label로 바꿔줍니다. 
+컴포넌트 지정시 사용한 id를 lable로 매핑시켜주는 python 코드를 실행하시면 자동으로 id 값을 Element의 label로 바꿔줍니다. 
 ```
 python --file test.xfdl  --out test.xfdl  
 ```

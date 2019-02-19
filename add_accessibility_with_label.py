@@ -10,6 +10,7 @@ TAGS = ['Edit','Radio', 'Combo', 'Button', 'Tabpage', 'Calendar', 'TextArea', 'D
 
 parser = argparse.ArgumentParser(description='add accessibility style with label from element id attribute')
 parser.add_argument('--file', dest='file', help='xpltform xfdl file')
+parser.add_argument('--out', dest='out', help='output file')
 args = parser.parse_args()
 
 tree = ET.parse( args.file )
