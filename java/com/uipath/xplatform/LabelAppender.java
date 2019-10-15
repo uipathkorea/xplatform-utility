@@ -23,11 +23,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
  
 
-public class LableAppender {
+public class LabelAppender {
 
     public static String [] TAGS = {"Edit", "Radio", "Combo", "Button", "Tabpage", "Calendar", "TextArea", "Dataset","Grid"};
 
-    public void appendLable(File source, boolean overwrite) throws Exception {
+    public void appendLabel(File source, boolean overwrite) throws Exception {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         TransformerFactory factory = TransformerFactory.newInstance();
@@ -59,7 +59,7 @@ public class LableAppender {
             Document doc = dBuilder.parse(file);
             doc.getDocumentElement().normalize();
             Element root = doc.getDocumentElement();
-            for (String tag: LableAppender.TAGS) {
+            for (String tag: LabelAppender.TAGS) {
                 NodeList nodes = root.getElementsByTagName(tag); 
                 for( int idx = 0; idx < nodes.getLength(); idx++) {
                     Element node = (Element)nodes.item(idx);
@@ -130,8 +130,8 @@ public class LableAppender {
             }
             try {
                 //System.out.println("target " + target + "  filemode " + filemode + ",  overwrite "+ overwrite);
-                LableAppender lable = new LableAppender();
-                lable.appendLable( new File( target), overwrite);
+                LabelAppender lable = new LabelAppender();
+                lable.appendLabel( new File( target), overwrite);
             } catch ( Exception ioe) {
                 System.err.println( ioe.getMessage());
             }
