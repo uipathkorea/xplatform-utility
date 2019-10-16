@@ -8,7 +8,7 @@ import java.io.StringWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-
+import java.util.Random;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -21,11 +21,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
  
 
 public class LabelAppender {
 
-    public static String [] TAGS = {"Edit", "Radio", "Combo", "Button", "Tabpage", "Calendar", "TextArea", "Dataset","Grid"};
+    public static String UiPath_Label ="Ui-%s-%d";
+    public static String [] TAGS = {"Edit", "Radio", "Combo", "Button", "Tabpage", "Calendar", "TextArea", "Grid"};
 
     public void appendLabel(File source, boolean overwrite) throws Exception {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -55,6 +57,8 @@ public class LabelAppender {
         }
 
         for( File file: files) {
+            Random startLabelId = new Random();
+            int labelId = startLabelId.nextInt(100);
             System.out.println( file.toString());
             Document doc = dBuilder.parse(file);
             doc.getDocumentElement().normalize();
@@ -67,12 +71,12 @@ public class LabelAppender {
                     if( attr != null ) {
                         if( !attr.contains("accessibility:enable") ) {
                             if( attr.trim().length() > 2)
-                                node.setAttribute("style",  attr + ";accessibility:enable '" + node.getAttribute("id") +"';");
+                                node.setAttribute("style",  attr + ";accessibility:enable '" +  String.format(UiPath_Label, tag, labelId++) + "';");
                             else
-                                node.setAttribute("style",  "accessibility:enable '" + node.getAttribute("id") +"';");
+                                node.setAttribute("style",  "accessibility:enable '" + String.format(UiPath_Label, tag, labelId++) + "';");
                         } 
                     } else {
-                        node.setAttribute("style",  "accessibility:enable '" + node.getAttribute("id") +"';");
+                        node.setAttribute("style",  "accessibility:enable '" + String.format(UiPath_Label, tag, labelId++) + "';");
                     }
                     //System.out.println( node.getAttribute("style"));
                 }
