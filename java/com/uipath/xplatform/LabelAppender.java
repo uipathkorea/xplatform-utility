@@ -71,12 +71,12 @@ public class LabelAppender {
                     if( attr != null ) {
                         if( !attr.contains("accessibility:enable") ) {
                             if( attr.trim().length() > 2)
-                                node.setAttribute("style",  attr + ";accessibility:enable '" +  String.format(UiPath_Label, tag, labelId++) + "';");
+                                node.setAttribute("style",  attr + "; accessibility:enable all 'label: " +  String.format(UiPath_Label, tag, labelId++) + "';");
                             else
-                                node.setAttribute("style",  "accessibility:enable '" + String.format(UiPath_Label, tag, labelId++) + "';");
+                                node.setAttribute("style",  "accessibility:enable all 'label: " + String.format(UiPath_Label, tag, labelId++) + "';");
                         } 
                     } else {
-                        node.setAttribute("style",  "accessibility:enable '" + String.format(UiPath_Label, tag, labelId++) + "';");
+                        node.setAttribute("style",  "accessibility:enable all 'lable: " + String.format(UiPath_Label, tag, labelId++) + "';");
                     }
                     //System.out.println( node.getAttribute("style"));
                 }
