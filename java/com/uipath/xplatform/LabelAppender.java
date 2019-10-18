@@ -27,7 +27,7 @@ import org.w3c.dom.NodeList;
 public class LabelAppender {
 
     public static String UiPath_Label ="Ui-%s-%d";
-    public static String [] TAGS = {"Edit", "Radio", "Combo", "Button", "Tabpage", "Calendar", "TextArea", "Grid"};
+    public static String [] TAGS = {"Edit", "Radio", "Combo", "Button", "Tabpage", "Calendar", "TextArea", "Grid", "CheckBox", "MaskEdit"};
 
     public void appendLabel(File source, boolean overwrite) throws Exception {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
